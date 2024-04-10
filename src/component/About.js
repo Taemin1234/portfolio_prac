@@ -15,7 +15,7 @@ const Section_Wrap = styled.section`
 const Text_box = styled.div`
     display: flex;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 30px;
 
     color: #fff;
     margin: 0 auto;
@@ -48,8 +48,30 @@ const Info_list = styled.li`
         margin-bottom:15px;
         color: #00bfff;
         font-size : 25px;
+        font-weight:700;
     }
 `
+
+const CareerList = styled.ul`
+    li {
+        margin-top:15px;
+        line-height:1.3;
+
+        p {
+            font-size:16px;
+        }
+
+        &:first-child {
+            margin-top:0px
+        }
+    }
+`
+const InfoList = ({ title, children }) => (
+    <Info_list>
+        <p className='title'>{title}</p>
+        {children}
+    </Info_list>
+);
 
 function About () {
     return (
@@ -66,21 +88,25 @@ function About () {
                 </div>
                 <div>
                     <ul>
-                        <Info_list>
-                            <p className='title'>생년월일</p>
+                        <InfoList title="생년월일">
                             <p className='content'>1994.11.22</p>
-                        </Info_list>
-                        <Info_list>
-                            <p className='title'>경력</p>
-                            <ul>
-                                <li>페이잇 - 퍼블리셔<br/>2022.03 ~ 2022.12 (스타트업)</li>
-                                <li>코드파트너즈 - 퍼블리셔<br/>2023.02 ~  (웹에이전시)</li>
-                            </ul>
-                        </Info_list>
-                        <Info_list>
+                        </InfoList>
+                        <InfoList title="경력">
+                            <CareerList>
+                                <li>
+                                    페이잇 - 퍼블리셔
+                                    <p>2022.03 ~ 2022.12 (스타트업)</p>
+                                </li>
+                                <li>
+                                    코드파트너즈 - 퍼블리셔
+                                    <p>2023.02 ~  (웹에이전시)</p>
+                                </li>
+                            </CareerList>
+                        </InfoList>
+                        <InfoList title="사이트">
                             <a href='#link' title='새 창 열림' target="_blank">벨로그</a>
                             <a href='#link' title='새 창 열림' target="_blank">깃허브</a>
-                        </Info_list>
+                        </InfoList>
                     </ul>
                 </div>
             </Text_box>

@@ -1,11 +1,13 @@
 import styled, { keyframes } from "styled-components"
 
-const Main_wrap = styled.section`
+const Main_Wrap = styled.section`
     height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    background-color: #1A1A1A;
 `
 
 const textShow = keyframes`
@@ -38,7 +40,7 @@ const Main_title = styled.h1`
     }
 `
 
-const Main_subtitle = styled.p`
+const Main_Subtitle = styled.p`
     font-size: 40px;
     font-weight: 500;
     color: #fff;
@@ -65,7 +67,7 @@ const arrow_down = keyframes`
         bottom: 18%;
     }
 `;
-const Arrow_wrap = styled.div`
+const Arrow_Wrap = styled.div`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -95,17 +97,17 @@ const BottomArrow = styled(Arrow)`
 `
 function Main() {
     return (
-        <Main_wrap>
+        <Main_Wrap>
             <div>
                 <Main_title data-text="TM's&nbsp;Portfolio">TM's&nbsp;Portfolio</Main_title>
-                <Main_subtitle>송태민의 포트폴리오입니다.</Main_subtitle>
+                <Main_Subtitle>송태민의 포트폴리오입니다.</Main_Subtitle>
             </div>
-            <Arrow_wrap>
+            <Arrow_Wrap>
                 <TopArrow></TopArrow>
                 <MidArrow></MidArrow>
                 <BottomArrow></BottomArrow>
-            </Arrow_wrap>
-        </Main_wrap>
+            </Arrow_Wrap>
+        </Main_Wrap>
     )
 }
 

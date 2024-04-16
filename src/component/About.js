@@ -80,12 +80,26 @@ const CareerList = styled.ul`
         }
     }
 `
+const BlogLink = styled.a`
+    background-image: url(${(props) => props.bgImg});
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    display: block;
+
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    border-radius: 10px;
+`
+
 const InfoList = ({ title, children }) => (
     <Info_list>
         <p className='title'>{title}</p>
         {children}
     </Info_list>
 );
+
 
 function About () {
     return (
@@ -118,8 +132,8 @@ function About () {
                             </CareerList>
                         </InfoList>
                         <InfoList title="사이트">
-                            <a href='#link' title='새 창 열림' target="_blank">벨로그</a>
-                            <a href='#link' title='새 창 열림' target="_blank">깃허브</a>
+                            <BlogLink href='https://velog.io/@s_ongt_aemin/posts' title='새 창 열림' target="_blank" bgImg = '/images/velog.png'>벨로그</BlogLink>
+                            <BlogLink href='https://github.com/Taemin1234' title='새 창 열림' target="_blank" bgImg = '/images/github.png'>깃허브</BlogLink>
                         </InfoList>
                     </ul>
                 </div>

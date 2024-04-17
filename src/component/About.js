@@ -132,8 +132,8 @@ function About () {
                             </CareerList>
                         </InfoList>
                         <InfoList title="사이트">
-                            <BlogLink href='https://velog.io/@s_ongt_aemin/posts' title='새 창 열림' target="_blank" bgImg = '/images/velog.png'>벨로그</BlogLink>
-                            <BlogLink href='https://github.com/Taemin1234' title='새 창 열림' target="_blank" bgImg = '/images/github.png'>깃허브</BlogLink>
+                            <BlogLink href='https://velog.io/@s_ongt_aemin/posts' title='새 창 열림' target="_blank" bgImg = '/images/icon/velog.png'>벨로그</BlogLink>
+                            <BlogLink href='https://github.com/Taemin1234/Taemin1234/blob/main/README.md' title='새 창 열림' target="_blank" bgImg = '/images/icon/github.png'>깃허브</BlogLink>
                         </InfoList>
                     </ul>
                 </div>

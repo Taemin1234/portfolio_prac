@@ -1,113 +1,66 @@
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
+import { React } from 'react';
 
-const Main_Wrap = styled.section`
-    height: 100dvh;
+import mainImg from '../img/window06.jpg'
+
+const Header = styled.section`
+    height: 100px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+    border-bottom: solid 1px #000;
 
-    background-color: #1A1A1A;
-`
-
-const textShow = keyframes`
-    0% {
-        width: 0;
+    h2 {
+        font-size: 40px;
+        font-weight: 800;
     }
-    100% {
+`
+const Header_Box = styled.p`
+    width: 170px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+    color: #000;
+
+    border: solid 1px #000;
+`
+const Main_Wrap = styled.div`
+    position: relative;
+    padding-top: 160px;
+
+    p {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-size: 146px;
+        font-weight: 700;
+    }
+
+    img {
         width: 100%;
     }
-`;
-
-const Main_title = styled.h1`
-    position: relative;
-    font-size: 80px;
-    font-weight: 700;
-    color: #1A1A1A;
-    text-shadow: -3px 0px #fff, 0px 3px #fff, 3px 0px #fff, 0px -3px #fff;
-
-    &:before {
-        content: attr(data-text);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        color: #00bfa5;
-        text-shadow: -3px 0px #fff, 0px 3px #fff, 3px 0px #fff, 0px -3px #fff;
-        overflow: hidden;
-        animation: ${textShow} 3s forwards;
-    }
 `
 
-const Main_Subtitle = styled.p`
-    font-size: 40px;
-    font-weight: 500;
-    color: #fff;
-`
-const arrow_wave = keyframes`
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: .5;
-    }
-    100% {
-        opacity: 1;
-    }
-`;
-const arrow_down = keyframes`
-    0% {
-        bottom: 18%;
-    }
-    50% {
-        bottom: 15%;
-    }
-    100% {
-        bottom: 18%;
-    }
-`;
-const Arrow_Wrap = styled.div`
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 18%;
-    animation:${arrow_down} 2s infinite;
-`
-
-const Arrow = styled.div`
-    width: 80px;
-    height: 80px;
-
-    rotate: 225deg;
-    border-radius: 6px;
-    box-shadow: -10px -10px 4px 5px #00bfa5;
-    animation: ${arrow_wave} 1s infinite; animation-direction: alternate;
-`
-const TopArrow = styled(Arrow)`
-    animation-delay: 0.1s;
-`
-const MidArrow = styled(Arrow)`
-    margin-top: -30px;
-    animation-delay: 0.2s;
-`
-const BottomArrow = styled(Arrow)`
-    margin-top: -30px;
-    animation-delay: 0.3s;
-`
 function Main() {
     return (
+       <>
+        <Header>
+            <Header_Box>Since 2021</Header_Box>
+            <h2>송태민</h2>
+            <Header_Box>1994.11.22</Header_Box>
+        </Header>
         <Main_Wrap>
-            <div>
-                <Main_title data-text="TM's&nbsp;Portfolio">TM's&nbsp;Portfolio</Main_title>
-                <Main_Subtitle>송태민의 포트폴리오입니다.</Main_Subtitle>
-            </div>
-            <Arrow_Wrap>
-                <TopArrow></TopArrow>
-                <MidArrow></MidArrow>
-                <BottomArrow></BottomArrow>
-            </Arrow_Wrap>
+            <p>PORTFOLIO</p>
+            <img src={mainImg} alt='메인 이미지' />
         </Main_Wrap>
+       </>
     )
 }
 

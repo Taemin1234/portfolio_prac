@@ -6,6 +6,7 @@ import About from '../component/About'
 
 const Container_Wrap = styled.div`
     background-color: #f1f1f2;
+    font-family: 'Pretendard';
 `
 const Content = styled.div`
     max-width: 1200px;
@@ -23,7 +24,7 @@ function Container() {
                 {/* <Contact/> */}
                 {/* <Header /> */}
                 <Main/>
-                {/* <About/> */}
+                <About/>
             </Content>
         </Container_Wrap>
         

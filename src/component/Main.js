@@ -33,11 +33,11 @@ const Header_Box = styled.p`
 `
 const Main_Wrap = styled.div`
     position: relative;
-    padding-top: 160px;
+    padding-top: 130px;
 
     p {
         position: absolute;
-        top: 60px;
+        top: 30px;
         left: 50%;
         transform: translateX(-50%);
 

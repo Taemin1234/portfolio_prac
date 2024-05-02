@@ -18,7 +18,7 @@ const About_Box = styled.div`
     justify-content: flex-start;
 
     width: 100%;
-    padding: 20px 50px;
+    padding: 40px 50px 30px;
     border-radius: 30px;
     border-left: solid 3px #000;
     border-right: solid 3px #000;
@@ -69,8 +69,22 @@ const About_Box = styled.div`
 const About_Box2 = styled(About_Box)`
     display: block;
 `
+const Blog_link = styled.div`
+    margin-top: 60px;
+    display: flex;
+    gap: 30px;
 
-
+`
+const Blog_a = styled.a`
+    display: inline-block;
+    font-size: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url(${props => props.bgImg});
+    background-repeat: no-repeat;
+    background-size: contain;
+`
 
 function About () {
     return (
@@ -91,10 +105,10 @@ function About () {
                         <p className="date">퍼블리셔(2022.03 ~ 2022.12)</p>
                     </li>
                 </ul>
-                <div className="blog_link">
-                    <a href="#">velog</a>
-                    <a href="#">github</a>
-                </div>
+                <Blog_link>
+                    <Blog_a href="https://velog.io/@s_ongt_aemin/posts" target="_blank" title="새 창 열림" bgImg="/images/icon/velog.png">velog</Blog_a>
+                    <Blog_a href="https://github.com/Taemin1234" target="_blank" title="새 창 열림" bgImg="/images/icon/github.png">Github</Blog_a>
+                </Blog_link>
             </About_Box>
             <About_Box2>
                 <p className="title">SKILLS</p>

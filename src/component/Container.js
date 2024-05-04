@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Header from '../component/Header'
 import Main from '../component/Main'
 import About from '../component/About'
+import Products from '../component/Products'
 
 const Container_Wrap = styled.div`
     background-color: #f1f1f2;
@@ -25,6 +26,7 @@ function Container() {
                 {/* <Header /> */}
                 <Main/>
                 <About/>
+                <Products/>
             </Content>
         </Container_Wrap>
         

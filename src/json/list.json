@@ -8,7 +8,7 @@
             "HTML",
             "CSS",
             "jQuery",
-            "Javascript"
+            "JS"
         ],
         "tags": [
             "적응형"
@@ -24,7 +24,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형"
@@ -40,7 +41,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형"
@@ -56,7 +58,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형"
@@ -72,7 +75,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형"
@@ -88,7 +92,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형"
@@ -104,7 +109,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형",
@@ -121,7 +127,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형"
@@ -137,7 +144,8 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery"
+            "jQuery",
+            "JS"
         ],
         "tags": [
             "반응형"
@@ -149,15 +157,17 @@
         "id": 0,
         "title": "이전 컨셉 포트폴리오",
         "img": "/images/thumbnail/window98.png",
-        "des": "포트폴리오를 윈도우98 ui로 만들었습니다.",
+        "des": "포트폴리오를 윈도우98 ui로 만들었습니다. jquery ui를 사용하여 만들었습니다.",
         "skills": [
             "HTML",
             "CSS",
             "jQuery",
-            "jQuery Ui"
+            "JS"
         ],
-        "tags": [],
-        "github": "",
+        "tags": [
+            "윈도우 컨셉"
+        ],
+        "github": "https://naver.com",
         "link": ""
     }
 ]

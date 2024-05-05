@@ -7,7 +7,7 @@ const Section_Wrap = styled.section`
     gap: 50px;
 
     border-top: solid 6px #000;
-    padding: 60px 0;
+    padding: 60px 0 0;
 `
 const About_Box = styled.div`
     position: relative;
@@ -91,6 +91,7 @@ const Skill_wrap = styled.ul`
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+    width: 100%;
     border-top: ${props => props.top ? 'dashed 2px #000' : 'none'};
     padding-top: ${props => props.top ? '30px' : '0'};
 `

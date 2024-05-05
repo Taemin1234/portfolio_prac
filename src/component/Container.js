@@ -4,6 +4,7 @@ import Header from '../component/Header'
 import Main from '../component/Main'
 import About from '../component/About'
 import Products from '../component/Products'
+import Contact from '../component/Contact'
 
 const Container_Wrap = styled.div`
     background-color: #f1f1f2;
@@ -18,15 +19,10 @@ function Container() {
     return (
         <Container_Wrap>
             <Content>
-                {/* <Header/> */}
-                {/* <Main/> */}
-                {/* <About/> */}
-                {/* <작품/> */}
-                {/* <Contact/> */}
-                {/* <Header /> */}
                 <Main/>
                 <About/>
                 <Products/>
+                <Contact/>
             </Content>
         </Container_Wrap>
         

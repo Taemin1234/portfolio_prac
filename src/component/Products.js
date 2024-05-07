@@ -135,12 +135,66 @@ const Pd_tags = styled.div`
         border-radius: 50px;
     }
 `
+function PdItem({item}) {
+    return (
+        <Pd_item key={item.id}>
+            <Pd_info>
+                <img src={item.img} alt={item.title}/>
+                <div className="pd_info_text">
+                    <span className="title">{item.title}</span>
+                    <div className="pd_info_skill">
+                        {item.skills.map((skill) => (
+                            <Use_skill key={skill} data-value={skill} bgImg={`/images/icon/${skill}.png`}>{skill}</Use_skill>
+                        ))}
+                    </div>
+                    <div className="pd_link">
+                        {item.link && <Pd_link_box href={item.link} target="_blank">Homepage</Pd_link_box>}
+                        {item.github && <Pd_link_box href={item.github} target="_blank">Github</Pd_link_box>}
+                    </div>
+                </div>
+            </Pd_info>
+            <Pd_content>
+                <p>{item.des}</p>
+            </Pd_content>
+            <Pd_tags>
+                {item.tags.map((tag) => (
+                    <p key={tag}>{tag}</p>
+                ))}
+            </Pd_tags>
+        </Pd_item>
+    )
+}
+
 function Products() {
     const skill = [
         {id:1, name: 'JS'},
         {id:2, name:'react'},
         {id:3, name:'next'},
+        {id:4, name:'jQuery'},
+        {id:5, name:'HTML'},
     ]
+
+    // 체크된 항목 저장, 중복을 거르기 위해 set 함수 사용
+    const [checkItems, setCheckItems] = useState(new Set()) 
+    const [checked, setChecked] = useState(false); // 체크 여부 판단
+
+    // 체크 상태에 따라 Set 함수에 저장 또는 제외
+    const checkItemHandler = (value, isChecked) => {
+        const newCheckItems = new Set(checkItems);
+        if (isChecked) {
+            newCheckItems.add(value);
+        } else {
+            newCheckItems.delete(value);
+        }
+        setCheckItems(newCheckItems);
+        // console.log(newCheckItems);
+    }
+
+    // 클릭한 체크박스의 value값을 가져오고 체크 상태를 변경
+    const checkHandled = ({target}) => {
+        setChecked(!checked);
+        checkItemHandler(target.value, target.checked);
+    }
 
     return (
         <>
@@ -150,39 +204,17 @@ function Products() {
             <Skill_sel>
                 {skill.map((item) => (
                     <Skill_item key={item.id}>
-                        <input type="checkbox" value={item.name} id={`chk-${item.id}`}/>
+                        <input type="checkbox" value={item.name} id={`chk-${item.id}`} onChange={checkHandled} />
                         <label htmlFor={`chk-${item.id}`}>{item.name}</label>
                     </Skill_item>
                 ))}
             </Skill_sel>
             <Pd_list>
                 <ul>
-                    {list.map((item) => (
-                        <Pd_item key={item.id}>
-                            <Pd_info>
-                                <img src={item.img} alt={item.title}/>
-                                <div className="pd_info_text">
-                                    <span className="title">{item.title}</span>
-                                    <div className="pd_info_skill">
-                                        {item.skills.map((skill) => (
-                                            <Use_skill key={skill} bgImg={`/images/icon/${skill}.png`}>{skill}</Use_skill>
-                                        ))}
-                                    </div>
-                                    <div className="pd_link">
-                                        {item.link && <Pd_link_box href={item.link} target="_blank">Homepage</Pd_link_box>}
-                                        {item.github && <Pd_link_box href={item.github} target="_blank">Github</Pd_link_box>}
-                                    </div>
-                                </div>
-                            </Pd_info>
-                            <Pd_content>
-                                <p>{item.des}</p>
-                            </Pd_content>
-                            <Pd_tags>
-                                {item.tags.map((tag) => (
-                                    <p key={tag}>{tag}</p>
-                                ))}
-                            </Pd_tags>
-                        </Pd_item>
+                    {list.filter(item => 
+                        checkItems.size === 0 || Array.from(checkItems).every(skill => item.skills.includes(skill))
+                    ).map((item) => (
+                        <PdItem item={item} key={item.id} />
                     ))}
                 </ul>
             </Pd_list>

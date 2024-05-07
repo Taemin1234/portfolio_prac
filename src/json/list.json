@@ -24,8 +24,7 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery",
-            "JS"
+            "react"
         ],
         "tags": [
             "반응형"
@@ -39,10 +38,9 @@
         "img": "/images/thumbnail/hyosungheavy.png",
         "des": "효성 중공업 홈페이지를 제작했습니다.",
         "skills": [
-            "HTML",
             "CSS",
             "jQuery",
-            "JS"
+            "next"
         ],
         "tags": [
             "반응형"
@@ -57,9 +55,7 @@
         "des": "동국홀딩스 계열사 홈페이지를 제작했습니다.",
         "skills": [
             "HTML",
-            "CSS",
-            "jQuery",
-            "JS"
+            "CSS"
         ],
         "tags": [
             "반응형"
@@ -75,8 +71,7 @@
         "skills": [
             "HTML",
             "CSS",
-            "jQuery",
-            "JS"
+            "jQuery"
         ],
         "tags": [
             "반응형"

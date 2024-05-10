@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from "styled-components"
 import list from "../json/list.json"
 
+import PdItem from './PdItem';
+
 const Products_wrap = styled.div`
     margin-top: 40px;
 `
@@ -51,119 +53,6 @@ const Pd_list = styled.div`
         gap: 20px;
     }
 `
-const Pd_item = styled.li`
-    width: 100%;
-    max-width: 580px;
-    padding: 20px;
-    border-top: solid 2px #000;
-    border-bottom: solid 2px #000;
-    box-sizing: border-box;
-    background-color: #d9d9d9;
-`
-const Pd_info = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-
-    img {
-        width: 50%;
-    }
-
-    .pd_info_text {
-        .title {
-            font-size: 24px;
-            font-weight: 700;
-            border-bottom: solid 1px #000;
-            line-height: 30px;
-        }
-        .pd_info_skill {
-            display: flex;
-            gap: 5px;
-            margin-top: 15px;
-
-        }
-    }
-
-    .pd_link {
-        display: flex;
-        justify-content: flex-start;
-        gap: 10px;
-        margin-top: 15px;
-    }
-`
-
-const Use_skill = styled.div`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 0;
-    background-image: url(${props => props.bgImg});
-    background-repeat: no-repeat;
-    background-size: contain;
-`
-const Pd_link_box = styled.a`
-    display: block;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    color: #000;
-    background-color: #fff;
-    border: solid 1px #000;
-    text-align: center;
-`
-const Pd_content = styled.div`
-    margin-top: 20px;
-    
-    p {
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 30px;
-    }
-
-`
-const Pd_tags = styled.div`
-    margin-top: 15px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-
-    p {
-        padding: 5px 10px;
-        background-color: #494949;
-        color: #fff;
-        border-radius: 50px;
-    }
-`
-function PdItem({item}) {
-    return (
-        <Pd_item key={item.id}>
-            <Pd_info>
-                <img src={item.img} alt={item.title}/>
-                <div className="pd_info_text">
-                    <span className="title">{item.title}</span>
-                    <div className="pd_info_skill">
-                        {item.skills.map((skill) => (
-                            <Use_skill key={skill} data-value={skill} bgImg={`/images/icon/${skill}.png`}>{skill}</Use_skill>
-                        ))}
-                    </div>
-                    <div className="pd_link">
-                        {item.link && <Pd_link_box href={item.link} target="_blank">Homepage</Pd_link_box>}
-                        {item.github && <Pd_link_box href={item.github} target="_blank">Github</Pd_link_box>}
-                    </div>
-                </div>
-            </Pd_info>
-            <Pd_content>
-                <p>{item.des}</p>
-            </Pd_content>
-            <Pd_tags>
-                {item.tags.map((tag) => (
-                    <p key={tag}>{tag}</p>
-                ))}
-            </Pd_tags>
-        </Pd_item>
-    )
-}
 
 function Products() {
     const skill = [
@@ -174,6 +63,7 @@ function Products() {
         {id:5, name:'HTML'},
     ]
 
+    
     // 체크된 항목 저장, 중복을 거르기 위해 set 함수 사용
     const [checkItems, setCheckItems] = useState(new Set()) 
     const [checked, setChecked] = useState(false); // 체크 여부 판단
@@ -196,6 +86,17 @@ function Products() {
         checkItemHandler(target.value, target.checked);
     }
 
+    // filter 함수로 true인 요소만 랜더링한다.
+    // checkItems가 비어있으면 모든 item을 랜더링한다.
+    // 논리 OR 연산자로 앞 조건이 true이면 뒷 조건을 무시하고 false이면 뒷 조건을 발동시킨다.
+    // checkItems를 배열로 변환하고
+    // every를 사용하여 배열 요소가 every의 모든 조건을 통화하면 true로 반환하여 랜더링할 수 있다.
+    // every의 조건(item.skills.includes(skill))은 skill가 item.skills(list에 있는 배열) 배열에 포함되는 지 확인
+    // 그러면 true인 skill만 map 함수로 돌려서 랜더링 된다.
+    const filteredSkill = list.filter(item => 
+        checkItems.size === 0 || Array.from(checkItems).every(skill => item.skills.includes(skill))
+    );
+
     return (
         <>
             <Products_wrap>
@@ -211,9 +112,7 @@ function Products() {
             </Skill_sel>
             <Pd_list>
                 <ul>
-                    {list.filter(item => 
-                        checkItems.size === 0 || Array.from(checkItems).every(skill => item.skills.includes(skill))
-                    ).map((item) => (
+                    {filteredSkill.length === 0 ? (<p>내용이 없습니다.</p>) : filteredSkill.map((item) => (
                         <PdItem item={item} key={item.id} />
                     ))}
                 </ul>

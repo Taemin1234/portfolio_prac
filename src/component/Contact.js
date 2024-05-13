@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact_wrap = styled.div`
     width: 100%;
@@ -53,36 +54,59 @@ const Email_btn = styled.button`
 `
 
 function Contact() {
-    const defaultEmail = 'example@example.com';  // 기본 이메일 주소 설정
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
+    const form = useRef();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await fetch('/send-email', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: defaultEmail, subject, message })
+    const [formData, setFormData] = useState({
+        email_title: '',
+        email_text: '',
+      });
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData, //저장된 데이터 값을 가져와 모든 사항을 볼 수 있게 한다.
+            [name]: value, // 현재 바뀌는 값을 업데이트 한다.
         });
-        if (response.ok) {
-        alert('이메일이 성공적으로 전송되었습니다.');
-        } else {
-        alert('이메일 전송에 실패했습니다.');
-        }
+        console.log(formData)
+    };
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs
+        .sendForm('service_3s27gid', 'template_9puzar1', form.current, {
+          publicKey: 'cHwSPE6mnf62FrATm',
+        })
+        .then(
+          () => {
+            alert('메일이 전송되었습니다!')
+            console.log('SUCCESS!');
+            setFormData({
+                email_title: '',
+                email_text: '',
+              });
+          },
+          (error) => {
+            alert('메일 전송에 실패했습니다 ㅠ')
+            console.log('FAILED...', error.text);
+          },
+        );
     };
 
     return (
         <Contact_wrap>
             <h2>Contact</h2>
             <Email_wrap>
-                <form onSubmit={handleSubmit}>
+                <form ref={form} onSubmit={sendEmail}>
                     <div>
-                        <Email_input type="text" value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="제목을 입력해주세요" required />
+                        <label>
+                            <Email_input type="text" name='email_title' placeholder="제목을 입력해주세요(20자 이내)" maxLength={20} value={formData.email_title} onChange={handleChange} required />
+                        </label>
                     </div>
                     <div>
-                        <Email_input as='textarea' rows={5} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="내용을 입력해주세요" required/>
+                        <label>
+                            <Email_input as='textarea' rows={5} name='email_text' placeholder="내용과 회신할 연락처를 입력해주세요" value={formData.email_text} onChange={handleChange} required/>
+                        </label>
                     </div>
                     <Email_btn type="submit">이메일 전송</Email_btn>
                 </form>

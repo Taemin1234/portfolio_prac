@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from '../styles/media'
 
 const Section_Wrap = styled.section`
     display: flex;
@@ -8,6 +9,15 @@ const Section_Wrap = styled.section`
 
     border-top: solid 6px #000;
     padding: 60px 0 0;
+
+    ${({ theme }) => media(theme.breakpoints).large`
+        gap: ${({ theme }) => '25px'};
+    `}
+
+    ${({ theme }) => media(theme.breakpoints).medium`
+        flex-direction: ${({ theme }) => 'column'};
+        padding: ${({ theme }) => '60px 20px 0'};
+    `}
 `
 const About_Box = styled.div`
     position: relative;
@@ -23,6 +33,10 @@ const About_Box = styled.div`
     border-left: solid 3px #000;
     border-right: solid 3px #000;
 
+    ${({ theme }) => media(theme.breakpoints).large`
+        padding: ${({ theme }) => '30px 20px 30px'};
+    `}
+
     .title {
         position: absolute;
         left: 50%;
@@ -32,16 +46,27 @@ const About_Box = styled.div`
         font-size: 40px;
         font-weight: 700;
         
+        ${({ theme }) => media(theme.breakpoints).large`
+            font-size: ${({ theme }) => '30px'};
+        `}
     }
 
     .name {
         font-size: 40px;
         font-weight: 700;
         text-align: center;
+
+        ${({ theme }) => media(theme.breakpoints).large`
+            font-size: ${({ theme }) => '30px'};
+        `}
     }
     .birth {
         font-size: 30px;
         text-align: center;
+
+        ${({ theme }) => media(theme.breakpoints).large`
+            font-size: ${({ theme }) => '23px'};
+        `}
     }
     .career {
         margin-top: 40px;
@@ -58,9 +83,17 @@ const About_Box = styled.div`
             .name {
                 font-size: 30px;
                 font-weight: 500;
+
+                ${({ theme }) => media(theme.breakpoints).large`
+                    font-size: ${({ theme }) => '23px'};
+                `}
             }
             .date {
                 font-size: 20px;
+
+                ${({ theme }) => media(theme.breakpoints).large`
+                    font-size: ${({ theme }) => '16px'};
+                `}
             }
         }
     }
@@ -75,6 +108,10 @@ const Blog_link = styled.div`
     display: flex;
     gap: 30px;
 
+    ${({ theme }) => media(theme.breakpoints).large`
+        margin-top: ${({ theme }) => '40px'};
+    `}
+
 `
 const Blog_a = styled.a`
     display: inline-block;
@@ -85,6 +122,11 @@ const Blog_a = styled.a`
     background-image: url(${props => props.bgImg});
     background-repeat: no-repeat;
     background-size: contain;
+
+    ${({ theme }) => media(theme.breakpoints).large`
+        width: ${({ theme }) => '60px'};
+        height: ${({ theme }) => '60px'};
+    `}
 `
 const Skill_wrap = styled.ul`
     display: flex;
@@ -94,17 +136,32 @@ const Skill_wrap = styled.ul`
     width: 100%;
     border-top: ${props => props.top ? 'dashed 2px #000' : 'none'};
     padding-top: ${props => props.top ? '30px' : '0'};
+
+    ${({ theme }) => media(theme.breakpoints).large`
+        gap: ${({ theme }) => '15px'};
+    `}
 `
 const Skill_li = styled.li`
+    text-align: center;
+
     img {
         width: 80px;
         height: 80px;
+
+        ${({ theme }) => media(theme.breakpoints).large`
+            width: ${({ theme }) => '40px'};
+            height: ${({ theme }) => '40px'};
+        `}
     }
 
     p {
         text-align: center;
         margin-top: 10px;
         font-size: 18px;
+
+        ${({ theme }) => media(theme.breakpoints).large`
+            font-size: ${({ theme }) => '16px'};
+        `}
     }
 `
 
@@ -122,6 +179,7 @@ function About () {
         {name: "Figma", img:"images/icon/figma.png"},
         {name: "jira", img:"images/icon/jira.png"},
         {name: "notion", img:"images/icon/notion.png"},
+        {name: "GA4", img:"images/icon/GA4.png"},
     ]
 
     return (

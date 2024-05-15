@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components"
+import media from '../styles/media'
 
 const header = keyframes`
     0% {

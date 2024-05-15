@@ -58,7 +58,7 @@ function Products() {
     const skill = [
         {id:1, name: 'JS'},
         {id:2, name:'react'},
-        {id:3, name:'next'},
+        {id:3, name:'nextjs'},
         {id:4, name:'jQuery'},
         {id:5, name:'HTML'},
     ]

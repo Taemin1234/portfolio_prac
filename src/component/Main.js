@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { React } from 'react';
+import media from '../styles/media'
 
 import mainImg from '../img/window06.jpg'
 
@@ -16,6 +17,11 @@ const Header = styled.section`
         font-family: 'MBC1961';
         font-weight: 500;
         font-size: 45px;
+
+        ${({ theme }) => media(theme.breakpoints).small`
+            margin: ${({ theme }) => '0 auto'};
+            font-size: ${({ theme }) => '35px'};
+        `}
     }
 `
 const Header_Box = styled.p`
@@ -30,10 +36,23 @@ const Header_Box = styled.p`
     color: #000;
 
     border: solid 1px #000;
+
+    ${({ theme }) => media(theme.breakpoints).medium`
+        width: ${({ theme }) => '110px'};
+        font-size: ${({ theme }) => '18px'};
+    `}
+
+    ${({ theme }) => media(theme.breakpoints).small`
+        display: ${({ theme }) => 'none'};
+    `}
 `
 const Main_Wrap = styled.div`
     position: relative;
     padding-top: 130px;
+
+    ${({ theme }) => media(theme.breakpoints).large`
+        padding-top: ${({ theme }) => '104px'};
+    `}
 
     p {
         position: absolute;
@@ -44,6 +63,14 @@ const Main_Wrap = styled.div`
         font-family: 'Unbounded';
         font-size: 146px;
         font-weight: 900;
+
+        ${({ theme }) => media(theme.breakpoints).large`
+            font-size: ${({ theme }) => '11vw'};
+        `}
+
+        ${({ theme }) => media(theme.breakpoints).medium`
+            font-size: ${({ theme }) => '45px'};
+        `}
     }
 
     img {
@@ -52,14 +79,28 @@ const Main_Wrap = styled.div`
 `
 const Main_text = styled.div`
     margin: 40px 0;
+
+    ${({ theme }) => media(theme.breakpoints).medium`
+        margin: ${({ theme }) => '20px 0'};
+        padding: ${({ theme }) => '0px 20px'};
+    `}
+
     .title {
         font-size: 40px;
         font-weight: 700;
+
+        ${({ theme }) => media(theme.breakpoints).medium`
+            font-size: ${({ theme }) => '30px'};
+        `}
     }
 
     .content {
         font-size: 25px;
         margin-top: 30px;
+
+        ${({ theme }) => media(theme.breakpoints).medium`
+            font-size: ${({ theme }) => '18px'};
+        `}
     }
 `
 

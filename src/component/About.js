@@ -152,6 +152,11 @@ const Skill_li = styled.li`
             width: ${({ theme }) => '40px'};
             height: ${({ theme }) => '40px'};
         `}
+
+    ${({ theme }) => media(theme.breakpoints).medium`
+        width: ${({ theme }) => '60px'};
+        height: ${({ theme }) => '60px'};
+    `}
     }
 
     p {

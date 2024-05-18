@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import styled from "styled-components"
 import list from "../json/list.json"
+import media from '../styles/media'
 
 import PdItem from './PdItem';
 
 const Products_wrap = styled.div`
     margin-top: 40px;
+
+    ${({ theme }) => media(theme.breakpoints).medium`
+        padding: ${({ theme }) => '0 20px'};
+    `}
 `
 
 const Products_title = styled.h2`
@@ -21,6 +26,10 @@ const Skill_sel = styled.div`
     background-color: #d9d9d9;
     padding: 15px;
     box-sizing: border-box;
+
+    ${({ theme }) => media(theme.breakpoints).medium`
+        margin: ${({ theme }) => '0 20px'};
+    `}
 
 `
 const Skill_item = styled.div`

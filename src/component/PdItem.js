@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import styled from "styled-components"
+import media from '../styles/media'
 
 const Pd_item = styled.li`
     width: 100%;

@@ -86,6 +86,10 @@ const Pd_content = styled.div`
         font-size: 22px;
         font-weight: 700;
         line-height: 30px;
+
+        ${({ theme }) => media(theme.breakpoints).small`
+            font-size: ${({ theme }) => theme.font.moCont};
+        `}
     }
 
 `

@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import media from '../styles/media'
 
 const Contact_wrap = styled.div`
     width: 100%;
@@ -12,6 +13,11 @@ const Contact_wrap = styled.div`
     gap: 150px;
     box-sizing: border-box;
 
+    ${({ theme }) => media(theme.breakpoints).sub_large`
+        flex-direction : ${({ theme }) => theme.flex.fdCol};
+        gap: 30px;
+    `}
+
     h2 {
         font-size: 50px;
         font-weight: 700;
@@ -20,6 +26,10 @@ const Contact_wrap = styled.div`
 `
 const Email_wrap = styled.div`
     width: 50%;
+
+    ${({ theme }) => media(theme.breakpoints).sub_large`
+        width: 100%
+    `}
 
     form {
         display: flex;

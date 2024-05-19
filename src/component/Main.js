@@ -19,8 +19,8 @@ const Header = styled.section`
         font-size: 45px;
 
         ${({ theme }) => media(theme.breakpoints).small`
-            margin: ${({ theme }) => '0 auto'};
-            font-size: ${({ theme }) => '35px'};
+            margin: 0 auto;
+            font-size: 35px;
         `}
     }
 `
@@ -38,12 +38,12 @@ const Header_Box = styled.p`
     border: solid 1px #000;
 
     ${({ theme }) => media(theme.breakpoints).medium`
-        width: ${({ theme }) => '110px'};
-        font-size: ${({ theme }) => '18px'};
+        width: 110px;
+        font-size: 18px;
     `}
 
     ${({ theme }) => media(theme.breakpoints).small`
-        display: ${({ theme }) => 'none'};
+        display: none;
     `}
 `
 const Main_Wrap = styled.div`
@@ -51,7 +51,7 @@ const Main_Wrap = styled.div`
     padding-top: 130px;
 
     ${({ theme }) => media(theme.breakpoints).large`
-        padding-top: ${({ theme }) => '104px'};
+        padding-top: 104px;
     `}
 
     p {
@@ -65,11 +65,11 @@ const Main_Wrap = styled.div`
         font-weight: 900;
 
         ${({ theme }) => media(theme.breakpoints).large`
-            font-size: ${({ theme }) => '11vw'};
+            font-size: 11vw;
         `}
 
         ${({ theme }) => media(theme.breakpoints).medium`
-            font-size: ${({ theme }) => '45px'};
+            font-size: 45px;
         `}
     }
 
@@ -81,8 +81,8 @@ const Main_text = styled.div`
     margin: 40px 0;
 
     ${({ theme }) => media(theme.breakpoints).medium`
-        margin: ${({ theme }) => '20px 0'};
-        padding: ${({ theme }) => '0px 20px'};
+        margin: 20px 0;
+        padding: 0px 20px;
     `}
 
     .title {
@@ -90,7 +90,7 @@ const Main_text = styled.div`
         font-weight: 700;
 
         ${({ theme }) => media(theme.breakpoints).medium`
-            font-size: ${({ theme }) => '30px'};
+            font-size: ${({ theme }) => theme.font.moTit};
         `}
     }
 
@@ -99,7 +99,7 @@ const Main_text = styled.div`
         margin-top: 30px;
 
         ${({ theme }) => media(theme.breakpoints).medium`
-            font-size: ${({ theme }) => '18px'};
+             font-size: ${({ theme }) => theme.font.moCont};
         `}
     }
 `

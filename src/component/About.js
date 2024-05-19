@@ -11,12 +11,12 @@ const Section_Wrap = styled.section`
     padding: 60px 0 0;
 
     ${({ theme }) => media(theme.breakpoints).large`
-        gap: ${({ theme }) => '25px'};
+        gap: 25px;
     `}
 
     ${({ theme }) => media(theme.breakpoints).medium`
-        flex-direction: ${({ theme }) => 'column'};
-        padding: ${({ theme }) => '60px 20px 0'};
+        flex-direction: ${({ theme }) => theme.flex.fdCol};
+        padding: 60px 20px 0;
     `}
 `
 const About_Box = styled.div`
@@ -32,9 +32,10 @@ const About_Box = styled.div`
     border-radius: 30px;
     border-left: solid 3px #000;
     border-right: solid 3px #000;
+    box-sizing: border-box;
 
     ${({ theme }) => media(theme.breakpoints).large`
-        padding: ${({ theme }) => '30px 20px 30px'};
+        padding: 30px 20px 30px;
     `}
 
     .title {
@@ -47,7 +48,7 @@ const About_Box = styled.div`
         font-weight: 700;
         
         ${({ theme }) => media(theme.breakpoints).large`
-            font-size: ${({ theme }) => '30px'};
+            font-size: ${({ theme }) => theme.font.moTit};
         `}
     }
 
@@ -57,7 +58,7 @@ const About_Box = styled.div`
         text-align: center;
 
         ${({ theme }) => media(theme.breakpoints).large`
-            font-size: ${({ theme }) => '30px'};
+             font-size: ${({ theme }) => theme.font.moTit};
         `}
     }
     .birth {
@@ -65,7 +66,7 @@ const About_Box = styled.div`
         text-align: center;
 
         ${({ theme }) => media(theme.breakpoints).large`
-            font-size: ${({ theme }) => '23px'};
+            font-size: ${({ theme }) => theme.font.moSubTit};
         `}
     }
     .career {
@@ -85,14 +86,14 @@ const About_Box = styled.div`
                 font-weight: 500;
 
                 ${({ theme }) => media(theme.breakpoints).large`
-                    font-size: ${({ theme }) => '23px'};
+                    font-size: ${({ theme }) => theme.font.moSubTit};
                 `}
             }
             .date {
                 font-size: 20px;
 
                 ${({ theme }) => media(theme.breakpoints).large`
-                    font-size: ${({ theme }) => '16px'};
+                    font-size: ${({ theme }) => theme.font.moCont};
                 `}
             }
         }
@@ -109,7 +110,7 @@ const Blog_link = styled.div`
     gap: 30px;
 
     ${({ theme }) => media(theme.breakpoints).large`
-        margin-top: ${({ theme }) => '40px'};
+        margin-top: 40px;
     `}
 
 `
@@ -124,8 +125,8 @@ const Blog_a = styled.a`
     background-size: contain;
 
     ${({ theme }) => media(theme.breakpoints).large`
-        width: ${({ theme }) => '60px'};
-        height: ${({ theme }) => '60px'};
+        width: 60px;
+        height: 60px;
     `}
 `
 const Skill_wrap = styled.ul`
@@ -138,7 +139,7 @@ const Skill_wrap = styled.ul`
     padding-top: ${props => props.top ? '30px' : '0'};
 
     ${({ theme }) => media(theme.breakpoints).large`
-        gap: ${({ theme }) => '15px'};
+        gap: 15px;
     `}
 `
 const Skill_li = styled.li`
@@ -149,14 +150,14 @@ const Skill_li = styled.li`
         height: 80px;
 
         ${({ theme }) => media(theme.breakpoints).large`
-            width: ${({ theme }) => '40px'};
-            height: ${({ theme }) => '40px'};
+            width: 40px;
+            height: 40px;
         `}
 
-    ${({ theme }) => media(theme.breakpoints).medium`
-        width: ${({ theme }) => '60px'};
-        height: ${({ theme }) => '60px'};
-    `}
+        ${({ theme }) => media(theme.breakpoints).medium`
+            width: 60px;
+            height: 60px;
+        `}
     }
 
     p {
@@ -165,7 +166,7 @@ const Skill_li = styled.li`
         font-size: 18px;
 
         ${({ theme }) => media(theme.breakpoints).large`
-            font-size: ${({ theme }) => '16px'};
+            font-size: ${({ theme }) => theme.font.moCont};
         `}
     }
 `

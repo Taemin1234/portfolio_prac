@@ -9,7 +9,7 @@ const Products_wrap = styled.div`
     margin-top: 40px;
 
     ${({ theme }) => media(theme.breakpoints).medium`
-        padding: ${({ theme }) => '0 20px'};
+        padding: 0 20px;
     `}
 `
 
@@ -21,6 +21,7 @@ const Products_title = styled.h2`
 `
 const Skill_sel = styled.div`
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     width: 100%;
     background-color: #d9d9d9;
@@ -28,7 +29,8 @@ const Skill_sel = styled.div`
     box-sizing: border-box;
 
     ${({ theme }) => media(theme.breakpoints).medium`
-        margin: ${({ theme }) => '0 20px'};
+        margin: 0 20px;
+        width: auto;
     `}
 
 `
@@ -56,10 +58,19 @@ const Pd_list = styled.div`
     margin-top: 20px;
     padding-bottom: 60px;
 
+    ${({ theme }) => media(theme.breakpoints).sub_large`
+        padding: 0 20px 60px;
+    `}
+
     ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
+
+        ${({ theme }) => media(theme.breakpoints).sub_large`
+            display: flex;
+            flex-direction : ${({ theme }) => theme.flex.fdCol};
+        `}
     }
 `
 

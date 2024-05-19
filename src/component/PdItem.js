@@ -14,14 +14,26 @@ const Pd_item = styled.li`
     opacity: 0;
     margin-top: 30px;
     transition: all 0.5s;
+
+    ${({ theme }) => media(theme.breakpoints).sub_large`
+        max-width : unset;
+    `}
 `
 const Pd_info = styled.div`
     display: flex;
     justify-content: flex-start;
     gap: 20px;
 
+    ${({ theme }) => media(theme.breakpoints).medium`
+         flex-direction : ${({ theme }) => theme.flex.fdCol};
+    `}
+
     img {
         width: 50%;
+
+        ${({ theme }) => media(theme.breakpoints).medium`
+            width : 100%;
+        `}
     }
 
     .pd_info_text {
@@ -33,6 +45,7 @@ const Pd_info = styled.div`
         }
         .pd_info_skill {
             display: flex;
+            flex-wrap:wrap;
             gap: 5px;
             margin-top: 15px;
 
@@ -81,6 +94,7 @@ const Pd_tags = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
 
     p {

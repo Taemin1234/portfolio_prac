@@ -16,11 +16,11 @@ const Content = styled.div`
     margin: 0 auto;
 
     ${({ theme }) => media(theme.breakpoints).large`
-        width: ${({ theme }) => '85%'};
+        width: 85%;
     `}
 
     ${({ theme }) => media(theme.breakpoints).medium`
-        width: ${({ theme }) => '100%'};
+        width: 100%;
     `}
 `
 
@@ -31,8 +31,8 @@ function Container() {
                 <Main/>
                 <About/>
                 <Products/>
-                <Contact/>
             </Content>
+            <Contact/>
         </Container_Wrap>
         
 
